@@ -1,5 +1,5 @@
 import pickle
-from flask imort Flask,request,app,jsonify,url_for,render_template
+from flask import Flask,request,app,jsonify,url_for,render_template
 import numpy as np
 import pandas as pd
 
@@ -18,7 +18,12 @@ def predict_api():
     data=request.json['data']
     new_data=np.array(list(data.values())).reshape(1,-1)
     output=dmodel.predict(new_data)
-    return jsonify(output[0])
+    print("predicted output: ",output[0])
+    if(output[0]==0):
+        return render_template('Negpcos.html')
+    else:
+        return render_template('Pospcos.html')
+    #return #jsonify(output[0])
 
 if __name__=="__main__":
     app.run(debug=True)
