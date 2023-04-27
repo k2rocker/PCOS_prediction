@@ -23,7 +23,17 @@ def predict_api():
         return render_template('Negpcos.html')
     else:
         return render_template('Pospcos.html')
-    #return #jsonify(output[0])
+    
+@app.route('/predict',methods=['POST'])
+def predict():
+    data=[float(x) for x in request.form.values()]
+    final_input=np.array(data).reshape(1,-1)
+    output=dmodel.predict(final_input)
+    if(output[0]==0):
+        return render_template("home.html",prediction_text="The prediction status of PCOS is : NEGATIVE")
+    else:
+        return render_template("home.html",prediction_text="The prediction status of PCOS is : POSITIVE")
+
 
 if __name__=="__main__":
     app.run(debug=True)
