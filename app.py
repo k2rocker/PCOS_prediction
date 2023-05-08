@@ -20,9 +20,9 @@ def predict_api():
     output=dmodel.predict(new_data)
     print("predicted output: ",output[0])
     if(output[0]==0):
-        return render_template('Negpcos.html')
+        return render_template('home.html')
     else:
-        return render_template('Pospcos.html')
+        return render_template('home.html')
     
 @app.route('/predict',methods=['POST'])
 def predict():

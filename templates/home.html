@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type= "text/css" href="static\styles\style.css">
     <title>PCOS prediction</title>
+    
 </head>
 <body>
     <h1>
         PCOS Prediction
     </h1>
-
+    
     <!-- Input form for the prediction model-->
-    <form action="{{url_for('predict')}}"method="POST">
-        <input type="text" name="BMI" placeholder="BMI" required="required" /><br>
-        <input type="text" name="Glucose" placeholder="Glucose" required="required" /><br>
-        <input type="text" name="age" placeholder="age" required="required" /><br>
-        <input type="text" name="cp" placeholder="cp" required="required" /><br>
-        <input type="text" name="trestbps" placeholder="trestbps" required="required" /><br>
-        <input type="text" name="fbs" placeholder="fbs" required="required" /><br>
-        <input type="text" name="ca" placeholder="ca" required="required" /><br>
-        <input type="text" name="chol" placeholder="chol" required="required" /><br>
+    <form action="{{url_for('predict')}}"method="POST" id="formstyle">
+        <input class ="field" type="text" name="BMI" placeholder="BMI" required="required" /><br>
+        <input class ="field" type="text" name="Glucose" placeholder="Glucose" required="required" /><br>
+        <input class ="field" type="text" name="age" placeholder="age" required="required" /><br>
+        <input class ="field" type="text" name="cp" placeholder="cp" required="required" /><br>
+        <input class ="field" type="text" name="trestbps" placeholder="trestbps" required="required" /><br>
+        <input class ="field" type="text" name="fbs" placeholder="fbs" required="required" /><br>
+        <input class ="field" type="text" name="ca" placeholder="ca" required="required" /><br>
+        <input class ="field" type="text" name="chol" placeholder="chol" required="required" /><br>
 
         <button type="submit" >Predict</button>
     </form>
@@ -28,7 +30,7 @@
     <br>
     <br>
 
-<div>
+<div id="predictout" class="glow">
     {{prediction_text}}
 </div>
 
